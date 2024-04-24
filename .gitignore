@@ -162,3 +162,5 @@ cython_debug/
 init.sql
 
 secret.yaml
+
+.idea
