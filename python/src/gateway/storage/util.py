@@ -6,7 +6,8 @@ def upload(f, fs, channel, access):
     try:
         fid = fs.put(f)
     except Exception as err:
-        return "internal server error", 500
+        print("upload error")
+        return f"internal server error mongo {err}", 500
     
     message = {
         "video_fid": str(fid),
@@ -26,4 +27,5 @@ def upload(f, fs, channel, access):
     except Exception as err:
         print(err)
         fs.delete(fid)
-        return "internal server error", 500
+        print("publish error")
+        return "internal server error rabbit", 500
